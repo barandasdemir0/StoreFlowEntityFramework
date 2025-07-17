@@ -1,0 +1,355 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+       @await Component.InvokeAsync("_HeadDashboardComponentPartial")
+
+<body>
+    <div class="container-scroller">
+   
+        @await Component.InvokeAsync("_NavbarDashboardComponentPartial")
+   
+      
+        <div class="container-fluid page-body-wrapper">
+   
+            @await Component.InvokeAsync("_ThemeSettingsWrapperDashboardComponentPartial")
+            @await Component.InvokeAsync("_RightSidebarDashboardComponentPartial")
+            @await Component.InvokeAsync("_SidebarDashboardComponentPartial")
+    
+          
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title">
+                            Dashboard
+                        </h3>
+                    </div>
+                    @await Component.InvokeAsync("_CardStatisticsDashboardComponentPartial")
+                    @await Component.InvokeAsync("_ChartDashboardComponentPartial")
+                    
+                    <div class="row">
+                        @await Component.InvokeAsync("_SalesStatusDashboardComponentPartial")
+                        @await Component.InvokeAsync("_ActivityDashboardComponentPartial")
+                        @await Component.InvokeAsync("_DailySalesDashboardComponentPartial")
+                       
+
+                       
+                      
+                    </div>
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <i class="fas fa-envelope"></i>
+                                        Inbox(31)
+                                    </h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-1">
+                                                        <img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face13.jpg" alt="profile" class="img-sm rounded-circle" />
+                                                    </td>
+                                                    <td class="font-weight-bold">
+                                                        Andrew Bowen
+                                                    </td>
+                                                    <td>
+                                                        <label class="badge badge-light badge-pill">Development</label>
+                                                    </td>
+                                                    <td>
+                                                        The required fields are added in the database
+                                                    </td>
+                                                    <td>
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-1">
+                                                        <img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face2.jpg" alt="profile" class="img-sm rounded-circle" />
+                                                    </td>
+                                                    <td class="font-weight-bold">
+                                                        Mae Saunders
+                                                    </td>
+                                                    <td>
+                                                        <label class="badge badge-light badge-pill">Development</label>
+                                                    </td>
+                                                    <td>
+                                                        The application will be completed by tomorrow
+                                                    </td>
+                                                    <td>
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-1">
+                                                        <div class="img-sm rounded-circle bg-warning profile-image-text">M</div>
+                                                    </td>
+                                                    <td class="font-weight-bold">
+                                                        Manuel Yates
+                                                    </td>
+                                                    <td>
+                                                        <label class="badge badge-light badge-pill">Design</label>
+                                                    </td>
+                                                    <td>
+                                                        The new design is uploaded in zeplin
+                                                    </td>
+                                                    <td>
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-1">
+                                                        <img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face11.html" alt="profile" class="img-sm rounded-circle" />
+                                                    </td>
+                                                    <td class="font-weight-bold">
+                                                        Marguerite Phillips
+                                                    </td>
+                                                    <td>
+                                                        <label class="badge badge-light badge-pill">Development</label>
+                                                    </td>
+                                                    <td>
+                                                        Please send me the latest requirements
+                                                    </td>
+                                                    <td>
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <label class="form-check-label">
+                                                                <input type="checkbox" class="form-check-input">
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-1">
+                                                        <div class="img-sm rounded-circle bg-info profile-image-text">C</div>
+                                                    </td>
+                                                    <td class="font-weight-bold">
+                                                        Clifford Wilson
+                                                    </td>
+                                                    <td>
+                                                        <label class="badge badge-light badge-pill">Testing</label>
+                                                    </td>
+                                                    <td>
+                                                        The issues are documented in the shared sheet
+                                                    </td>
+                                                    <td>
+                                                        <i class="fas fa-ellipsis-v"></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        
+
+                        @await Component.InvokeAsync("_SalesDataDashboardComponentPartial")
+                      
+                       
+                    </div>
+
+
+
+
+                  
+
+                    <div class="row">
+                        @await Component.InvokeAsync("_TodoDashboardComponentPartial")
+                        
+                        <div class="col-md-5 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <i class="fas fa-rocket"></i>
+                                        Projects
+                                    </h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Assigned to
+                                                    </th>
+                                                    <th>
+                                                        Project name
+                                                    </th>
+                                                    <th>
+                                                        Priority
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="py-1">
+                                                        <img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face1.jpg" alt="profile" class="img-sm rounded-circle" />
+                                                    </td>
+                                                    <td>
+                                                        South Shyanne
+                                                    </td>
+                                                    <td>
+                                                        <label class="badge badge-warning badge-pill">Medium</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1">
+                                                        <img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face2.jpg" alt="profile" class="img-sm rounded-circle" />
+                                                    </td>
+                                                    <td>
+                                                        New Trystan
+                                                    </td>
+                                                    <td>
+                                                        <label class="badge badge-danger badge-pill">High</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1">
+                                                        <img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face3.jpg" alt="profile" class="img-sm rounded-circle" />
+                                                    </td>
+                                                    <td>
+                                                        East Helga
+                                                    </td>
+                                                    <td>
+                                                        <label class="badge badge-success badge-pill">Low</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1">
+                                                        <img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face4.jpg" alt="profile" class="img-sm rounded-circle" />
+                                                    </td>
+                                                    <td>
+                                                        Omerbury
+                                                    </td>
+                                                    <td>
+                                                        <label class="badge badge-warning badge-pill">Medium</label>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-md-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                                            <button class="btn btn-social-icon btn-facebook btn-rounded">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </button>
+                                            <div class="ml-4">
+                                                <h5 class="mb-0">Facebook</h5>
+                                                <p class="mb-0">813 friends</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                                            <button class="btn btn-social-icon btn-twitter btn-rounded">
+                                                <i class="fab fa-twitter"></i>
+                                            </button>
+                                            <div class="ml-4">
+                                                <h5 class="mb-0">Twitter</h5>
+                                                <p class="mb-0">9000 followers</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3 mb-md-0">
+                                            <button class="btn btn-social-icon btn-google btn-rounded">
+                                                <i class="fab fa-google-plus-g"></i>
+                                            </button>
+                                            <div class="ml-4">
+                                                <h5 class="mb-0">Google plus</h5>
+                                                <p class="mb-0">780 friends</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <button class="btn btn-social-icon btn-linkedin btn-rounded">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </button>
+                                            <div class="ml-4">
+                                                <h5 class="mb-0">Linkedin</h5>
+                                                <p class="mb-0">1090 connections</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2018. All rights reserved.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="far fa-heart text-danger"></i></span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/off-canvas.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/hoverable-collapse.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/misc.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/settings.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/dashboard.js"></script>
+    <!-- End custom js for this page-->
+</body>
+
+
+</html>
