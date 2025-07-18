@@ -1,0 +1,61 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Kategori Listesi</h4>
+                <p class="card-description">
+                     <code>Kategori İle İşlemlerinizi buradan yapabilirsiniz</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>KategoriID</th>
+                                <th>Kategori Adı</th>
+                                <th>Durum</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.CategoryId</td>
+                                    <td>@item.CategoryName</td>
+                                    @switch (item.CategoryStatus)
+                                    {
+                                        case true:
+                                            <td> <label class="badge badge-outline-success badge-pill">Aktif</label></td>
+                                            break;
+                                        case false:
+                                            <td> <label class="badge badge-outline-danger badge-pill">Pasif</label></td>
+                                            break;
+                                        
+                                    }
+                                   
+                                    <td><a href="/Category/CategoryDelete/@item.CategoryId" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/Category/CategoryUpdate/@item.CategoryId" class="btn btn-outline-warning">Güncelle</a></td>
+                                </tr>
+                            }
+                          
+                         
+                        </tbody>
+                    </table>
+                    <a href="/Category/CategoryAdd/" class="btn btn-outline-success">Kategori Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>

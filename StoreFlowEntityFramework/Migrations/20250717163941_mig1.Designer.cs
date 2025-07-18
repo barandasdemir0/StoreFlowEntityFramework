@@ -12,8 +12,8 @@ using StoreFlowEntityFramework.Context;
 namespace StoreFlowEntityFramework.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20250717130005_mig3")]
-    partial class mig3
+    [Migration("20250717163941_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,10 @@ namespace StoreFlowEntityFramework.Migrations
                     b.Property<TimeOnly>("ActivityTime")
                         .HasColumnType("time");
 
-                    b.Property<string>("Descrpition")
+                    b.Property<int>("Deneme")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -166,6 +169,26 @@ namespace StoreFlowEntityFramework.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("StoreFlowEntityFramework.Entities.Todo", b =>
+                {
+                    b.Property<int>("TodoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TodoId"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("TodoId");
+
+                    b.ToTable("Todos");
                 });
 
             modelBuilder.Entity("StoreFlowEntityFramework.Entities.Order", b =>

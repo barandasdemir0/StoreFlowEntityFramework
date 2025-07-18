@@ -12,8 +12,8 @@ using StoreFlowEntityFramework.Context;
 namespace StoreFlowEntityFramework.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20250717134148_mig4")]
-    partial class mig4
+    [Migration("20250717164030_mig2")]
+    partial class mig2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

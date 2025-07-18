@@ -1,0 +1,31 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "CategoryUpdate";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yeni Kategori Ekleme</h4>
+
+                @using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+                {
+                    @Html.HiddenFor(x=>x.CategoryId)
+                @*     <input type="hidden" asp-for="CategoryId" />  ikiside kullanılabilir*@
+                   
+                        <div class="form-group">
+                            <label for="exampleInputName1">Kategori Adı</label>
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Kategori Adını Yazınız" asp-for="CategoryName">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                
+                }
+               
+            </div>
+        </div>
+    </div>
+</div>
+

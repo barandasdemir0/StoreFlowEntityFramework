@@ -5,24 +5,25 @@
 namespace StoreFlowEntityFramework.Migrations
 {
     /// <inheritdoc />
-    public partial class mig3 : Migration
+    public partial class mig1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Status",
-                table: "Orders",
-                type: "nvarchar(max)",
-                nullable: true);
+            migrationBuilder.AddColumn<int>(
+                name: "Deneme",
+                table: "Activities",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Status",
-                table: "Orders");
+                name: "Deneme",
+                table: "Activities");
         }
     }
 }

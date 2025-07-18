@@ -1,0 +1,57 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "ProductList";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Ürün Listesi</h4>
+                <p class="card-description">
+                    <code>Kategori İle İşlemlerinizi buradan yapabilirsiniz</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ürün Adı</th>
+                                <th>Ürün Fiyatı</th>
+                                <th>Kategori Adı</th>
+                                <th>Stok Sayısı</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ProductId</td>
+                                    <td>@item.ProductName</td>
+                                    <td>@item.ProductPrice </td>
+                                    <td>@item.Category.CategoryName</td>
+                                    <td>@item.ProductStock</td>
+
+                                    <td><a href="/Product/ProductDelete/@item.ProductId" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/Product/ProductUpdate/@item.ProductId" class="btn btn-outline-warning">Güncelle</a></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                    <a href="/Product/ProductAdd/" class="btn btn-outline-success">Ürün Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
