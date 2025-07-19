@@ -1,0 +1,58 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "UpdateOrder";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sipariş Güncelleme</h4>
+
+                <form class="forms-sample" method="post">
+
+                    <input  type="hidden"  asp-for="OrderId"/>
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Ürün Seçiniz</label>
+                        <select asp-for="ProductId" asp-items="@ViewBag.product" class="form-control">
+                            <option value="0">-- Ürün Seçiniz --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Müşteri Seçiniz</label>
+                        <select asp-for="CustomerId" asp-items="@ViewBag.customer" class="form-control">
+                            <option value="0">-- Müşteri Seçiniz --</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Sipariş Adet</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Sipariş Adedini Yazınız" asp-for="OrderCount">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Birim Fiyat</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Birim fiyat Yazınız" asp-for="UnitPrice">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Toplam Fiyat</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Toplam fiyat Yazınız" asp-for="TotalPrice">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Sipariş Durumu Giriniz</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Sipariş Durumu Giriniz" asp-for="Status">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

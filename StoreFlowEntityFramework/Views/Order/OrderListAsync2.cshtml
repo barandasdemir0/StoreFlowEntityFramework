@@ -1,11 +1,8 @@
 ﻿@model List<Order>
 @{
-    ViewData["Title"] = "OrdersListByStatus";
+    ViewData["Title"] = "OrderListAsync2";
     Layout = "~/Views/Layout/Index.cshtml";
 }
-
-
-
 
 
 
@@ -13,35 +10,21 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Sipariş Listesi</h4>
+                <h4 class="card-title"> Asenkron Sipariş Listesi</h4>
                 <p class="card-description">
                     <code>Kategori İle İşlemlerinizi buradan yapabilirsiniz</code>
                 </p>
                 <div class="table-responsive">
 
-                    <form asp-action="OrdersListByStatus" method="get">
-                        <div class="row">
-                            <div class="col-md-9 grid-margin">
-                                <input type="text" name="Status" placeholder="bu alana durumu giriniz" class="form-control " />
-                                
-                            </div>
-                            <div class="col-md-3 grid-margin">
-                                <button type="submit" class="btn btn-outline-success mt-2">Ara</button>
-                            </div>
-                           
-                            
-                        </div>
-                        
-                    </form>
                     <br />
 
                     <table class="table">
                         <thead>
                             <tr>
-                             
+                                <th>#</th>
                                 <th>Ürün Adı</th>
                                 <th>Müşteri</th>
-                                <th>Sipariş</th>
+                                <th>Ürün Adedi</th>
                                 <th>Birim Fiyat</th>
                                 <th>Toplam Fiyat</th>
                                 <th>Durum</th>
@@ -55,9 +38,10 @@
                             {
                                 <tr>
                                     <td>@item.OrderId</td>
-                                    <td>@item.ProductId</td>
-                                    <td>@item.CustomerId </td>
-                                    <td>@item.UnitPrice TL</td>
+                                    <td>@item.Product.ProductName</td>
+                                    <td>@item.Customer.CustomerName @item.Customer.CustomerSurname </td>
+                                    <td>@item.OrderCount </td>
+                                    <td>@item.UnitPrice </td>       
                                     <td>@item.TotalPrice</td>
                                     <td>@item.Status</td>
                                     <td><a href="/Order/DeleteOrder/@item.OrderId" class="btn btn-outline-danger">Sil</a></td>
@@ -68,13 +52,17 @@
 
                         </tbody>
                     </table>
-                    <a href="/Order/OrderAdd/" class="btn btn-outline-success">sipariş Ekle</a>
+                    <a href="/Order/CreateOrder/" class="btn btn-outline-success">sipariş Ekle</a>
                 </div>
             </div>
         </div>
     </div>
 
 </div>
+
+
+
+
 
 
 
