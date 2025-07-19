@@ -17,8 +17,8 @@ namespace StoreFlowEntityFramework.Controllers
 
         public IActionResult ProductList()
         {
-    
-            var productList = _context.Products.Include(x=>x.Category).ToList(); //include metodu ile birleştirme oluyor yani category nesnesinden categorye erişebiliyoruz artık liste sayfamızdan categorydeki category name ulabileceğiz
+
+            var productList = _context.Products.Include(x => x.Category).ToList(); //include metodu ile birleştirme oluyor yani category nesnesinden categorye erişebiliyoruz artık liste sayfamızdan categorydeki category name ulabileceğiz
             return View(productList);
         }
 
@@ -75,25 +75,58 @@ namespace StoreFlowEntityFramework.Controllers
         {
             _context.Products.Update(product);
             _context.SaveChanges();
-             return RedirectToAction("ProductList");
+            return RedirectToAction("ProductList");
 
         }
 
 
         public IActionResult First5ProductList()
         {
-            var values = _context.Products.Include(x=>x.Category).Take(5).ToList();
+            var values = _context.Products.Include(x => x.Category).Take(5).ToList();
             return View(values);
         }
         public IActionResult Last4ProductList()
         {
-            var values = _context.Products.Include(x=>x.Category).Skip(4).Take(10).ToList();
+            var values = _context.Products.Include(x => x.Category).Skip(4).Take(10).ToList();
             return View(values);
         }
 
 
-       
+
+        [HttpGet]
+        public IActionResult CreateProductWithAttack()
+        {
+
+           
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateProductWithAttack(Product product)
+        {
+            var category = new Category { CategoryId = 1 };
+            _context.Categories.Attach(category);
+            var productValue = new Product
+            {
+                ProductName = product.ProductName,
+                ProductPrice = product.ProductPrice,
+                ProductStock = product.ProductStock,
+                Category = category
+            };
+            _context.Products.Add(productValue);
+            _context.SaveChanges();
+            return RedirectToAction("ProductList");
+        }
 
 
+        public IActionResult ProductCount()
+        {
+            var value = _context.Products.LongCount();
+            var lastProduct = _context.Products.OrderBy(x=>x.ProductId).Last();
+            ViewBag.l = lastProduct.ProductName;
+            ViewBag.v = value;
+            return View();
+        }
     }
 }
