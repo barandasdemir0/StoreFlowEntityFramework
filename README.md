@@ -57,7 +57,7 @@ Bu proje, Udemy üzerindeki Murat Yücedağ’ın EF Core eğitimi referans alı
 Baran Daşdemir  
 📍 Ankara, Türkiye
 
-📬 İletişim: [LinkedIn Profilim](https://www.linkedin.com/in/barandasdemir0)
+📬 İletişim: [LinkedIn Profilim](https://www.linkedin.com/in/baran-dasdemir/)
 
 ---
 
