@@ -1,0 +1,59 @@
+﻿@model List<Customer>
+@{
+    ViewData["Title"] = "CustomerListithDefaultIfEmpty";
+    Layout = "~/Views/Layout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Müşteri Listesi</h4>
+                <p class="card-description">
+                    <code>Müşteri İle İşlemlerinizi buradan yapabilirsiniz</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Müşteri Adı Soyadı</th>
+                                <th>Müşteri Şehir</th>
+                              
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+
+                                    <td>@count</td>
+                                    <td>@item.CustomerName @item.CustomerSurname</td>
+                                    <td>@item.CustomerCity </td>
+                                 
+
+
+                                    <td><a href="/Customer/CustomerDelete/@item.CustomerId" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/Customer/CustomerUpdate/@item.CustomerId" class="btn btn-outline-warning">Güncelle</a></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                    <a href="/Customer/CustomerAdd/" class="btn btn-outline-success">Müşteri Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

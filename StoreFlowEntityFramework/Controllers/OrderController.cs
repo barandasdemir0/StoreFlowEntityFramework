@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StoreFlowEntityFramework.Context;
 using StoreFlowEntityFramework.Entities;
+using StoreFlowEntityFramework.Models;
 using StoreFlowEntityFramework.ViewComponents;
 using System.Security.Cryptography.X509Certificates;
 
@@ -160,7 +161,19 @@ namespace StoreFlowEntityFramework.Controllers
 
 
 
-
+        public IActionResult OrderListWithCustomerGroup()
+        {
+            var result = from customer in _context.Customers
+                         join order in _context.Orders
+                         on customer.CustomerId equals order.OrderId
+                         into orderGroup
+                         select new CustomerOrderViewModel
+                         {
+                             CustomerName = customer.CustomerName+" "+customer.CustomerSurname,
+                             Orders = orderGroup.ToList()
+                         };
+             return View(result.ToList());
+        }
 
 
     }

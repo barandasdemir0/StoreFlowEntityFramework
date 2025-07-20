@@ -1,0 +1,45 @@
+﻿@model List<Message>
+
+<div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+    <div class="d-flex align-items-center justify-content-between border-bottom">
+        <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Mesajlar</p>
+        <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">Tümünü Gör</small>
+    </div>
+    <ul class="chat-list">
+        @foreach (var item in Model)
+        {
+            switch (item.IsRead)
+            {
+                case true:
+                    <li class="list">
+                        <div class="profile">@* buraya @item.SenderImageUrl gelecek ben resim eklemediğimden getirmedim *@<img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                        <div class="info">
+                            <div class="wrapper d-flex">
+                                <p>@item.SenderNameSurname</p>
+                            </div>
+                            <p>@item.MessageTitle</p>
+                        </div>
+                        <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                        <small class="text-muted my-auto">@item.DateTime.ToString("HH.mm")</small>
+                    </li>
+                    break;
+                case false:
+                    <li class="list active">
+                        <div class="profile"> @* buraya @item.SenderImageUrl gelecek ben resim eklemediğimden getirmedim *@ <img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                        <div class="info">
+                            <p>@item.SenderNameSurname</p>
+                            <p>@item.MessageTitle</p>
+                        </div>
+                        <small class="text-muted my-auto">@item.DateTime.ToString("HH.mm")</small>
+                    </li>
+                    break;
+
+            }
+        }
+
+
+
+
+
+    </ul>
+</div>

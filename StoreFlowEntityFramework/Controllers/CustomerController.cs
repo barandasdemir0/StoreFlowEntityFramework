@@ -133,6 +133,56 @@ namespace StoreFlowEntityFramework.Controllers
             return View(result);
         }
 
+        public IActionResult CustomerListithDefaultIfEmpty()
+        {
+            var customers = _context.Customers.Where(x=>x.CustomerCity == "Ankara").ToList().DefaultIfEmpty(new Customer
+            {
+                CustomerId = 0,
+                CustomerName = "Kayıt yok",
+                CustomerSurname = "-----",
+                CustomerCity = "Ankara"
+            }).ToList();
+            return View(customers);
+
+            //şehir listesi boşsa bu dönecek otomatik ankara atayacak
+            //var customers = _context.Customers.Where(x => string.IsNullOrEmpty(x.CustomerCity)).Select(c => new Customer
+            //{
+
+            //    CustomerName = c.CustomerName,
+            //    CustomerSurname = c.CustomerSurname,
+            //    CustomerCity = "Ankara"
+            //}).ToList();
+            //return View(customers);
+        }
+
+
+        public IActionResult CustomerIntersectByCity()
+        {
+            var cityValues1 = _context.Customers.Where(x => x.CustomerCity == "İstanbul").Select(y => y.CustomerName + " " + y.CustomerSurname).ToList();
+            var cityValues2 = _context.Customers.Where(x => x.CustomerCity == "Ankara").Select(y => y.CustomerName + " " + y.CustomerSurname).ToList();
+
+            var intersectValues = cityValues1.Intersect(cityValues2).ToList();
+            return View(intersectValues);
+        }
+
+        public IActionResult CustomerCastExample()
+        {
+            var values = _context.Customers.ToList();
+            ViewBag.v = values;
+            return View();
+        }
+
+        public IActionResult CustomerListWithIndex()
+        {
+            var customers = _context.Customers.ToList().Select((c, index) => new
+            {
+                SiraNo = index + 1,
+                c.CustomerName,
+                c.CustomerSurname,
+                c.CustomerCity
+            }).ToList();
+            return View(customers);
+        }
 
 
     }

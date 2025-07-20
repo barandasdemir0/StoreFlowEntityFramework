@@ -56,7 +56,16 @@ namespace StoreFlowEntityFramework.Controllers
             return RedirectToAction("CategoryList");
         }
 
+        public IActionResult ReverseCategory()
+        {
+            var category = _context.Categories.First();
+            ViewBag.c = category.CategoryName;
 
+            var categoryValues2 = _context.Categories.SingleOrDefault(x => x.CategoryName == "Anne ve Bebek Ürünleri");
+            ViewBag.v = categoryValues2.CategoryStatus + " " + categoryValues2.CategoryId.ToString();
+            var values = _context.Categories.OrderBy(x=>x.CategoryId).Reverse().ToList();
+            return View(values);
+        }
 
 
     }

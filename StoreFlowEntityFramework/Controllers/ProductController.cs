@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StoreFlowEntityFramework.Context;
 using StoreFlowEntityFramework.Entities;
+using StoreFlowEntityFramework.Models;
 
 namespace StoreFlowEntityFramework.Controllers
 {
@@ -97,7 +98,7 @@ namespace StoreFlowEntityFramework.Controllers
         public IActionResult CreateProductWithAttack()
         {
 
-           
+
 
             return View();
         }
@@ -123,10 +124,35 @@ namespace StoreFlowEntityFramework.Controllers
         public IActionResult ProductCount()
         {
             var value = _context.Products.LongCount();
-            var lastProduct = _context.Products.OrderBy(x=>x.ProductId).Last();
+            var lastProduct = _context.Products.OrderBy(x => x.ProductId).Last();
             ViewBag.l = lastProduct.ProductName;
             ViewBag.v = value;
             return View();
         }
+
+        public IActionResult ProductListWithCategory()
+        {
+            var values = from x in _context.Categories
+                         join p in _context.Products
+                         on
+                         x.CategoryId equals p.CategoryId
+                         select new ProductWithCategoryViewModel
+                         {
+                             ProductName = p.ProductName,
+                             ProductStock = p.ProductStock,
+                             CategoryName = x.CategoryName
+                         };
+       
+
+
+            return View(values.ToList());
+        }
+
+
+
+
+
+
+
     }
 }
