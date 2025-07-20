@@ -1,0 +1,62 @@
+﻿@model List<Todo>
+
+<li class="nav-item dropdown">
+    <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+        <i class="fas fa-bell mx-0"></i>
+        <span class="count">@ViewBag.todoTotalCount</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+        <a href="/Category/CategoryList/" class="dropdown-item">
+            <p class="mb-0 font-weight-normal float-left">
+                @ViewBag.todoTotalCount Toplam Bildirimimiz
+            </p>
+            <span class="badge badge-pill badge-warning float-right"> Tümünü Gör </span>
+        </a>
+        <div class="dropdown-divider"></div>
+        @foreach (var item in Model)
+        {
+            switch (item.Priority)
+            {
+                case "Birincil":
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-danger">
+                                <i class="fas fa-exclamation-circle mx-0"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-medium">@item.Description</h6>
+                            <p class="font-weight-light small-text">
+                                @item.Priority
+                            </p>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    break;
+                case "İkincil":
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="fas fa-wrench mx-0"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <h6 class="preview-subject font-weight-medium">@item.Description</h6>
+                            <p class="font-weight-light small-text">
+                                @item.Priority
+                            </p>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    break;
+            }
+
+          
+        }
+
+
+
+
+      
+    </div>
+</li>

@@ -1,0 +1,44 @@
+﻿@model List<Message>
+<li class="nav-item dropdown">
+    <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+        <i class="fas fa-envelope mx-0"></i>
+        <span class="count">0</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+        <div class="dropdown-item">
+            <p class="mb-0 font-weight-normal float-left">
+                @ViewBag.MessageCount mesajınız var
+            </p>
+            <span class="badge badge-info badge-pill float-right">Tümünü Gör</span>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/faces/face4.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                    <h6 class="preview-subject ellipsis font-weight-medium">
+                        @item.SenderNameSurname
+                        <span class="float-right font-weight-light small-text">
+                            @item.DateTime.ToString("dd.MM.yyyy HH:mm")
+                        </span>
+                    </h6>
+                    <p class="font-weight-light small-text">
+                        @item.MessageTitle
+                    </p>
+                </div>
+            </a>
+        }
+      
+
+
+
+
+
+
+
+
+    </div>
+</li>
